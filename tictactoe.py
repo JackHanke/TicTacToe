@@ -154,7 +154,6 @@ class Board:
                         elif child.eval == maxscore:
                             best_moves.append(child.move_from_parent)
 
-                    print(best_moves, maxscore)
                     return best_moves[randint(0,len(best_moves)-1)]
                 
                 elif self.whosmoveroot == -1:
@@ -167,11 +166,9 @@ class Board:
                         elif child.eval == minscore:
                             best_moves.append(child.move_from_parent)
 
-                    print(best_moves, minscore)
                     return best_moves[randint(0,len(best_moves)-1)]
 
-        board = Board(state = self.state)
-        return_tree = Tree(root=Node(data=board), whosmoveroot = board.whos_move())
+        return_tree = Tree(root=Node(data=self), whosmoveroot = self.whos_move())
 
         return_tree.make()
         return_tree.score()
